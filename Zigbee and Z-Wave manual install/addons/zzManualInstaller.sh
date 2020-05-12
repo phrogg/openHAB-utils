@@ -12,7 +12,7 @@ NC='\033[0m' # Reset
 SILENT=false
 introText() {
     echo; echo -e ${RED_WHITE}"                                                      "
-          echo -e ${RED_WHITE}"          Like this script?  I like BEER!!!!          "
+          echo -e ${RED_WHITE}"          Like this script?  I like WATER!            "
           echo -e ${RED_WHITE}"                                                      "
         echo -e ${BLACK_WHITE}"           https://paypal.me/ScottRushworth           "
           echo -e ${RED_WHITE}"                                                      "${NC}
@@ -21,7 +21,7 @@ introText() {
     echo "feature. The script must reside inside the addons folder and be executed on the machine running openHAB. Before a binding is installed, any previous versions will be"
     echo "uninstalled. Any manually installed versions will also be backed up by moving them to /addons/archive/. The installation of any binding will also include the installation"
     echo -e "of the openhab-core-io-transport-serial feature. After using this script, you can uninstall the bindings by deleting their jars from addons, or you can use this script.${NC}"
-    #echo; echo -e "${BLINKING}!!!!!${GREY_RED} If you have manually added the Zigbee or Z-Wave binding to your addons.cfg file, they must be removed from the file or the old version will reinstall ${BLINKING}!!!!!${NC}"
+    #echo; echo -e "${BLINKING}!${GREY_RED} If you have manually added the Zigbee or Z-Wave binding to your addons.cfg file, they must be removed from the file or the old version will reinstall ${BLINKING}!${NC}"
 }
 for WORD; do
     ARGUMENT=${WORD^^}
@@ -159,7 +159,7 @@ install() {
                 #elif [[ ${COUNT} -lt 24 ]]; then
                     #echo "DEBUG: Z-Wave ${ZIGBEE_CHECK}"
                 elif [[ ${COUNT} -eq 24 ]]; then
-                    echo; echo -e "${BLINKING}!!!!!${GREY_RED} It has taken more than two minutes to install the Zigbee binding, so exiting... try again or restart openHAB ${BLINKING}!!!!!${NC}"; echo
+                    echo; echo -e "${BLINKING}!${GREY_RED} It has taken more than two minutes to install the Zigbee binding, so exiting... try again or restart openHAB ${BLINKING}!${NC}"; echo
                     exit
                 #else
                     #echo "DEBUG: Zigbee wait count: ${COUNT}, ZIGBEE_CHECK=${ZIGBEE_CHECK}"
@@ -175,7 +175,7 @@ install() {
                 #elif [[ ${COUNT} -lt 24 ]]; then
                     #echo "DEBUG: Z-Wave ${ZWAVE_CHECK}"
                 elif [[ ${COUNT} -eq 24 ]]; then
-                    echo; echo -e "${BLINKING}!!!!!${GREY_RED} It has taken more than two minutes to install the Z-Wave binding, so exiting... try again or restart openHAB ${BLINKING}!!!!!${NC}"; echo
+                    echo; echo -e "${BLINKING}!${GREY_RED} It has taken more than two minutes to install the Z-Wave binding, so exiting... try again or restart openHAB ${BLINKING}!${NC}"; echo
                     exit
                 #else
                     #echo "DEBUG: Z-Wave wait count: ${COUNT}, ZWAVE_CHECK=${ZWAVE_CHECK}"
@@ -338,7 +338,7 @@ uninstall() {
                 #elif [[ ${COUNT} -lt 24 ]]; then
                     #echo "DEBUG: Zigbee ${ZIGBEE_CHECK}"
                 elif [[ ${COUNT} -eq 24 ]]; then
-                    echo; echo -e "${BLINKING}!!!!!${GREY_RED} It has taken more than two minutes to uninstall the Zigbee binding, so exiting ${BLINKING}!!!!!${NC}"; echo
+                    echo; echo -e "${BLINKING}!${GREY_RED} It has taken more than two minutes to uninstall the Zigbee binding, so exiting ${BLINKING}!${NC}"; echo
                     exit
                 #else
                     #echo "DEBUG: Zigbee wait count: ${COUNT}, ZIGBEE_CHECK=${ZIGBEE_CHECK}"
@@ -354,7 +354,7 @@ uninstall() {
                 #elif [[ ${COUNT} -lt 24 ]]; then
                     #echo "DEBUG: Z-Wave ${ZWAVE_CHECK}"
                 elif [[ ${COUNT} -eq 24 ]]; then
-                    echo; echo -e "${BLINKING}!!!!!${GREY_RED} It has taken more than two minutes to uninstall the Z-Wave binding, so exiting ${BLINKING}!!!!!${NC}"; echo
+                    echo; echo -e "${BLINKING}!${GREY_RED} It has taken more than two minutes to uninstall the Z-Wave binding, so exiting ${BLINKING}!${NC}"; echo
                     exit
                 #else
                     #echo "DEBUG: Z-Wave wait count: ${COUNT}, ZWAVE_CHECK=${ZWAVE_CHECK}"
@@ -427,7 +427,7 @@ summary() {
         clear;
     fi
     echo; echo -e ${RED_WHITE}"                                                      "
-          echo -e ${RED_WHITE}"          Like this script?  I like BEER!!!!          "
+          echo -e ${RED_WHITE}"          Like this script?  I like WATER!            "
           echo -e ${RED_WHITE}"                                                      "
         echo -e ${BLACK_WHITE}"           https://paypal.me/ScottRushworth           "
           echo -e ${RED_WHITE}"                                                      "${NC}
@@ -463,7 +463,7 @@ versions() {
     if [[ ${SILENT} = false ]]; then
         if [[ "${ACTION}" = "Install or upgrade Z-Wave binding" || "${ACTION}" = "Install or upgrade both bindings" ]]; then
             echo; echo; echo -e "Z-Wave binding: ${GREEN_DARK}Would you like to download the openHAB snapshot or development version?${NC}"
-                        echo -e "${BLINKING}!!!!!${GREY_RED} DO NOT select '2) Development' unless Chris has specifically instructed you to do so ${BLINKING}!!!!!${NC}"
+                        echo -e "${BLINKING}!${GREY_RED} DO NOT select '2) Development' unless Chris has specifically instructed you to do so ${BLINKING}!${NC}"
             select ZWAVE_VERSION in "openHAB snapshot" "Development" "Exit"; do
                 case $ZWAVE_VERSION in
                     "openHAB snapshot" ) break;;
@@ -479,7 +479,7 @@ versions() {
     if [[ ${SILENT} = false ]]; then
         if [[ "${ACTION}" = "Install or upgrade Zigbee binding" || "${ACTION}" = "Install or upgrade both bindings" ]]; then
             echo; echo; echo -e "Zigbee binding: ${GREEN_DARK}The openHAB snapshot binding will be downloaded, but which libraries would you like to use?${NC}"
-                        echo -e "${BLINKING}!!!!!${GREY_RED} DO NOT select '3) ZigBee Library snapshot' unless Chris has specifically instructed you to do so ${BLINKING}!!!!!${NC}"
+                        echo -e "${BLINKING}!${GREY_RED} DO NOT select '3) ZigBee Library snapshot' unless Chris has specifically instructed you to do so ${BLINKING}!${NC}"
             select ZIGBEE_VERSION in "openHAB baseline (included in openHAB snapshot)" "ZigBee Library release (pre-openHAB snapshot)" "ZigBee Library snapshot (still in development)" "Exit"; do
                 case $ZIGBEE_VERSION in
                     "openHAB baseline (included in openHAB snapshot)" ) break;;
@@ -534,10 +534,10 @@ addonsCfgCheck() {
             if [[ -n ${ADDONSCFG} ]]; then
                 binding=`grep "^binding" ${ADDONSCFG}`
                 if [[ "${binding}" =~ "zwave" && ("${ACTION}" =~ "Z-Wave" || "${ACTION}" =~ "both") ]]; then
-                    echo; echo -e "${BLINKING}!!!!!${GREY_RED} You must remove the Z-Wave binding from the 'binding' line in ${ADDONSCFG} ${BLINKING}!!!!!${NC}"; echo
+                    echo; echo -e "${BLINKING}!${GREY_RED} You must remove the Z-Wave binding from the 'binding' line in ${ADDONSCFG} ${BLINKING}!${NC}"; echo
                     exit
                 elif [[ "${binding}" =~ "zigbee" && ("${ACTION}" =~ "Zigbee" || "${ACTION}" =~ "both") ]]; then
-                    echo; echo -e "${BLINKING}!!!!!${GREY_RED} You must remove the Zigbee binding from the 'binding' line in ${ADDONSCFG} ${BLINKING}!!!!!${NC}"; echo
+                    echo; echo -e "${BLINKING}!${GREY_RED} You must remove the Zigbee binding from the 'binding' line in ${ADDONSCFG} ${BLINKING}!${NC}"; echo
                     exit
                 fi
             fi
@@ -551,7 +551,7 @@ menu() {
     if [[ ${SILENT} = false ]]; then
         clear
         if [[ "${CURRENT_ACCOUNT}" != "openhab" ]]; then
-            echo; echo -e "${BLINKING}!!!!!${GREY_RED} This script MUST be executed by the account that runs openHAB, typically 'openhab' ${BLINKING}!!!!!${NC}"
+            echo; echo -e "${BLINKING}!${GREY_RED} This script MUST be executed by the account that runs openHAB, typically 'openhab' ${BLINKING}!${NC}"
             select choice in "Continue (my openHAB account is \"${CURRENT_ACCOUNT}\")" "Exit"; do
                 case $choice in
                     "Continue (my openHAB account is \"${CURRENT_ACCOUNT}\")" ) break;;
@@ -597,7 +597,7 @@ versionCheck() {
             clear;
             echo; echo "Script version:  ${SCRIPT_VERSION}"
             echo "Current release: ${CURRENT_RELEASE}"
-            echo; echo -e "${BLINKING}!!!!!${GREY_RED} There is a newer version of the script available ${BLINKING}!!!!!${NC}"
+            echo; echo -e "${BLINKING}!${GREY_RED} There is a newer version of the script available ${BLINKING}!${NC}"
             select choice in "Upgrade script" "Do not upgrade script" "Exit"; do
                 case $choice in
                     "Upgrade script" ) updateScript ${CURRENT_RELEASE}; break;;
